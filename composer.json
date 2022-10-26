@@ -32,12 +32,6 @@
     "scripts": {
         "test": "@php vendor/bin/phpunit -c ./phpunit.xml"
     },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "/mnt/d/projects/imi/imi-meter"
-        }
-    ],
     "suggest": {},
     "minimum-stability": "dev",
     "prefer-stable": true
