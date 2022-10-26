@@ -11,6 +11,12 @@
 
 自动引入 `yurunsoft/influxdb-orm`，可以直接使用该 ORM 功能。
 
+**支持的功能：**
+
+* InfluxDB 连接管理
+* [influxdb-orm](https://github.com/Yurunsoft/influxdb-orm)
+* 服务指标监控
+
 > 正在开发中，随时可能修改，请勿用于生产环境！
 
 ## 安装
