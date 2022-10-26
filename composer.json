@@ -4,7 +4,6 @@
     "license": "MulanPSL-2.0",
     "description": "imi 框架 InfluxDB 组件。imi InfluxDB component.",
     "require": {
-        "imiphp/imi-meter": "~2.1.0",
         "yurunsoft/influxdb-orm": "^1.2"
     },
     "require-dev": {
@@ -32,7 +31,9 @@
     "scripts": {
         "test": "@php vendor/bin/phpunit -c ./phpunit.xml"
     },
-    "suggest": {},
+    "suggest": {
+        "imiphp/imi-meter": "*"
+    },
     "minimum-stability": "dev",
     "prefer-stable": true
 }
