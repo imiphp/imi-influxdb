@@ -15,9 +15,6 @@ services:
     container_name: "swoole"
     depends_on:
       - influxdb
-      - redis
-    environment:
-      REDIS_SERVER_HOST: ${REDIS_SERVER_HOST}
     build:
       context: .
       dockerfile: swoole.dockerfile
