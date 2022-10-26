@@ -1,0 +1,31 @@
+version: "3.4"
+volumes:
+  shared-volume:
+services:
+  influxdb:
+    image: influxdb:1.8
+    container_name: influxdb
+    environment:
+      - "INFLUXDB_DATA_INDEX_VERSION=tsi1"
+    ports:
+      - "8083:8083"
+      - "8086:8086"
+
+  swoole:
+    container_name: "swoole"
+    depends_on:
+      - influxdb
+      - redis
+    environment:
+      REDIS_SERVER_HOST: ${REDIS_SERVER_HOST}
+    build:
+      context: .
+      dockerfile: swoole.dockerfile
+      args:
+        SWOOLE_DOCKER_VERSION: ${SWOOLE_DOCKER_VERSION}
+    volumes:
+      - "${GITHUB_WORKSPACE}:/imi:rw"
+    working_dir: /imi
+    command: tail -f /dev/null
+    ports:
+      - "8080:8080"
