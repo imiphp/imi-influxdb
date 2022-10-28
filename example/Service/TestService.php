@@ -65,17 +65,17 @@ class TestService
 
     public function testCounterManual(): void
     {
-        MeterRegistry::getDriverInstance()->counter('testCounterManual', ['result' => 'success'], 'test')->increment();
+        MeterRegistry::getDriverInstance()->counter('test_counter_manual', ['result' => 'success'], 'test')->increment();
     }
 
     public function testGaugeManual(): void
     {
-        MeterRegistry::getDriverInstance()->gauge('testGaugeManual', ['result' => 'success'], 'test')->record(114514);
+        MeterRegistry::getDriverInstance()->gauge('test_gauge_manual', ['result' => 'success'], 'test')->record(114514);
     }
 
     public function testTimedManual(): void
     {
-        $timer = MeterRegistry::getDriverInstance()->timer('testTimedManual', ['result' => 'success'], 'test', TimeUnit::MILLI_SECONDS);
+        $timer = MeterRegistry::getDriverInstance()->timer('test_timed_manual', ['result' => 'success'], 'test', TimeUnit::MILLI_SECONDS);
         $timerSample = $timer->start();
         usleep(mt_rand(10, 1000) * 1000);
         $timerSample->stop($timer);
@@ -83,7 +83,7 @@ class TestService
 
     public function testTimedHistogramManual(): void
     {
-        $timer = MeterRegistry::getDriverInstance()->timer('testTimedHistogramManual', ['result' => 'success'], 'test', TimeUnit::MILLI_SECONDS, [
+        $timer = MeterRegistry::getDriverInstance()->timer('test_timed_histogram_manual', ['result' => 'success'], 'test', TimeUnit::MILLI_SECONDS, [
             'histogram' => true,
             'buckets'   => [100, 500, 1500],
         ]);
@@ -94,11 +94,11 @@ class TestService
 
     public function testHistogramManual(): void
     {
-        MeterRegistry::getDriverInstance()->histogram('testHistogramManual', ['result' => 'success'], 'test')->record(114514);
+        MeterRegistry::getDriverInstance()->histogram('test_histogram_manual', ['result' => 'success'], 'test')->record(114514);
     }
 
     public function testSummaryManual(): void
     {
-        MeterRegistry::getDriverInstance()->summary('testHistogramManual', ['result' => 'success'], 'test')->record(114514);
+        MeterRegistry::getDriverInstance()->summary('test_histogram_manual', ['result' => 'success'], 'test')->record(114514);
     }
 }

@@ -57,7 +57,7 @@ class InfluxDB
             {
                 foreach ($influxDBConfig['clients'] as $name => $config)
                 {
-                    InfluxDBManager::setClientConfig($name, $config['host'] ?? '127.0.0.1', $config['port'] ?? 8086, $config['username'] ?? '', $config['password'] ?? '', $config['ssl'] ?? false, $config['verifySSL'] ?? false, $config['timeout'] ?? 0, $config['connectTimeout'] ?? 0, $config['defaultDatabase'] ?? '', $config['path'] ?? '/');
+                    InfluxDBManager::setClientConfig($name, $config['host'] ?? '127.0.0.1', $config['port'] ?? 8086, $config['username'] ?? '', $config['password'] ?? '', $config['ssl'] ?? false, $config['verifySSL'] ?? false, $config['timeout'] ?? 0, $config['connectTimeout'] ?? 0, $config['defaultDatabase'] ?? '', $config['path'] ?? '/', $config['createDatabase'] ?? true);
                 }
             }
             if (isset($influxDBConfig['default']))

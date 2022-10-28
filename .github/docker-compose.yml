@@ -11,10 +11,19 @@ services:
       - "8083:8083"
       - "8086:8086"
 
+  tdengine:
+      image: tdengine/tdengine:3.0.1.5
+      container_name: tdengine
+      ports:
+        - 6020:6020
+        - 6030-6042:6030-6042/tcp
+        - 6030-6042:6030-6042/udp
+
   swoole:
     container_name: "swoole"
     depends_on:
       - influxdb
+      - tdengine
     build:
       context: .
       dockerfile: swoole.dockerfile

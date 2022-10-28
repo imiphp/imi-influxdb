@@ -82,7 +82,11 @@ return [
             'app' => [
                 'host'            => env('IMI_INFLUXDB_HOST', '127.0.0.1'),
                 'port'            => env('IMI_INFLUXDB_PORT', 8086),
+                'path'            => env('IMI_INFLUXDB_PATH', '/'),
+                'username'        => env('IMI_INFLUXDB_USERNAME', ''),
+                'password'        => env('IMI_INFLUXDB_PASSWORD', ''),
                 'defaultDatabase' => 'imi_influxdb',
+                'createDatabase'  => env('IMI_INFLUXDB_CREATE_DATABASE', true),
             ],
         ],
         'default' => 'app',

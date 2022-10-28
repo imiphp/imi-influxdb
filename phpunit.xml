@@ -8,11 +8,11 @@
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
-        <testsuite name="swoole">
-            <file>tests/Meter/SwooleTest.php</file>
+        <testsuite name="influxdb">
+            <directory>tests/Meter/InfluxDB</directory>
         </testsuite>
-        <testsuite name="workerman">
-            <file>tests/Meter/WorkermanTest.php</file>
+        <testsuite name="tdengine">
+            <directory>tests/Meter/TDengine</directory>
         </testsuite>
     </testsuites>
 </phpunit>
